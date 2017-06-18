@@ -1,0 +1,44 @@
+<html>
+
+<script language='javascript'>
+    function call(name) {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', name, true);
+        xhr.send();
+
+    }
+</script>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="nodecopter-client.js"></script>
+
+<body>
+
+    <div id="cockpit" />
+    <script language='javascript'>
+        // Add some UI elements
+        $('#cockpit').append('<img id="video" src="" />');
+
+        // Update image at 20fps
+        var videoImg = $("#video");
+        videoImg.attr("src", '/see/' + new Date().getTime());
+
+        setInterval(function() {
+            videoImg.attr("src", '/see/' + new Date().getTime());
+        }, 100);
+    </script>
+
+    <script language='javascript'>
+        // Add some UI elements
+        $('#cockpit').append('<div id="dronestream"></div>');
+
+        // Start the stream
+        cockpit.videostream = new NodecopterStream(
+            document.getElementById("dronestream"), {
+                port: 3001
+            }
+        );
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<html>
+
+<script language='javascript'>
+    function call(name) {
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', name, true);
+        xhr.send();
+
+    }
+</script>
+
+<body>
+
+    <a onclick="call('takeoff');">
+        <p>takeoff</p>
+    </a>
+
+    <a onclick="call('land');">
+        <p>land</p>
+    </a>
+
+</body>
+
+</html>
